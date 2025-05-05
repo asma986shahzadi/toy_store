@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Orders</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+    }
+    .sidebar {
+      height: 100vh;
+      width: 250px;
+      position: fixed;
+      background: #0044cc;
+      color: white;
+      padding: 20px;
+    }
+    .sidebar h2 {
+      margin-bottom: 30px;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      margin: 15px 0;
+      padding: 10px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    .sidebar a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    .main {
+      margin-left: 270px;
+      padding: 30px;
+    }
+    h1 {
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      margin-top: 20px;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+    th {
+      background: #0044cc;
+      color: white;
+    }
+    .status {
+      font-weight: bold;
+    }
+    .status-pending { color: orange; }
+    .status-accepted { color: green; }
+    .status-delivered { color: blue; }
+    .action-btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    .accept-btn {
+      background-color: #28a745;
+      color: white;
+    }
+    .deliver-btn {
+      background-color: #007bff;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Admin Panel</h2>
+    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+    <a href="manage_toys.html"><i class="fas fa-cubes"></i> Manage Toys</a>
+    <a href="orders.html"><i class="fas fa-shopping-cart"></i> Orders</a>
+    <a href="reports.html"><i class="fas fa-chart-line"></i> Reports</a>
+    <a href="../common/login.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  </div>
+
+  <div class="main">
+    <h1>Orders</h1>
+    <table id="ordersTable">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>User</th>
+          <th>Toy</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>501</td>
+          <td>Asma</td>
+          <td>Barbie Doll</td>
+          <td class="status status-pending">Pending</td>
+          <td>
+            <button class="action-btn accept-btn">Accept</button>
+            <button class="action-btn deliver-btn" disabled>Deliver</button>
+          </td>
+        </tr>
+        <tr>
+          <td>502</td>
+          <td>Ahmed</td>
+          <td>Race Car</td>
+          <td class="status status-accepted">Accepted</td>
+          <td>
+            <button class="action-btn accept-btn" disabled>Accept</button>
+            <button class="action-btn deliver-btn">Deliver</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    document.querySelectorAll('.accept-btn').forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const row = this.closest('tr');
+        const statusCell = row.querySelector('.status');
+        const deliverBtn = row.querySelector('.deliver-btn');
+
+        statusCell.textContent = 'Accepted';
+        statusCell.className = 'status status-accepted';
+        this.disabled = true;
+        deliverBtn.disabled = false;
+      });
+    });
+
+    document.querySelectorAll('.deliver-btn').forEach((btn) => {
+      btn.addEventListener('click', function () {
+        const row = this.closest('tr');
+        const statusCell = row.querySelector('.status');
+
+        statusCell.textContent = 'Delivered';
+        statusCell.className = 'status status-delivered';
+        this.disabled = true;
+      });
+    });
+  </script>
+
+</body>
+</html>

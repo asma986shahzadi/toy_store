@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>User Home - Toy Finder</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('../assets/images/bg1.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    header {
+      background: rgba(0, 123, 255, 0.9);
+      color: white;
+      padding: 20px 20px 20px 100px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    header img.logo {
+      position: absolute;
+      left: 20px;
+      width: 60px;
+      height: 60px;
+    }
+
+    header h1 {
+      margin: 0 auto;
+      font-size: 28px;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 15px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #0056b3;
+    }
+
+    .search-bar {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .search-bar form {
+      display: inline-flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .search-bar button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .search-bar button:hover {
+      background-color: #0056b3;
+    }
+
+    .container {
+      padding: 40px;
+      background-color: rgba(255, 255, 255, 0.5);
+      margin: 30px auto;
+      max-width: 1200px;
+      border-radius: 10px;
+    }
+
+    .category {
+      margin-bottom: 50px;
+    }
+
+    .sub-category {
+      margin-bottom: 30px;
+    }
+
+    .container h2,
+    .container h3 {
+      color: #333;
+      margin-bottom: 15px;
+    }
+
+    .toy-gallery {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .toy {
+      background: rgba(255, 255, 255, 0.7);
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      width: 200px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      animation: fadeIn 0.4s ease-in;
+    }
+
+    .toy:hover {
+      transform: translateY(-5px);
+    }
+
+    .toy img {
+      max-width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .toy h4 {
+      margin: 10px 0 5px;
+      color: #333;
+    }
+
+    .toy p {
+      color: #555;
+      font-weight: bold;
+    }
+
+    .toy button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .toy button:hover {
+      background-color: #218838;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 20px;
+      }
+
+      .search-bar form {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .search-bar input, .search-bar button {
+        width: 100%;
+      }
+
+      .toy {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="../assets/images/logo.png" alt="Toy Finder Logo" class="logo" />
+    <h1>Welcome to Toy Finder</h1>
+  </header>
+
+  <nav>
+    <a href="user_home.html">Home</a>
+    <a href="cart.html">My Cart</a>
+    <a href="my_orders.html">My Orders</a>
+    <a href="toy_request.html">Request Toy</a>
+    <a href="../common/login.php">Logout</a>
+  </nav>
+
+  <div class="search-bar">
+    <form action="search_results.html" method="GET">
+      <input type="text" name="query" placeholder="Search toys..." required />
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <div class="container">
+
+    <!-- Soft Toys -->
+    <div class="category">
+      <h2>Soft Toys</h2>
+
+      <div class="sub-category">
+        <h3>Teddy Bears</h3>
+        <div class="toy-gallery">
+          <div class="toy">
+            <img src="../assets/images/soft toys/teddybear/41ZRT2a7kHL._AC_UF1000,1000_QL80_.jpg" alt="Classic Teddy Bear" />
+            <h4>Teddy Bear</h4>
+            <p>Rs. 999</p>
+            <button onclick="addToCart('Teddy Bear', 999, '../assets/images/soft toys/teddybear/41ZRT2a7kHL._AC_UF1000,1000_QL80_.jpg')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/soft toys/teddybear/b21f2ff8a4de46189fd75bee9b7307d5.jpg_720x720q80.jpg" alt="Plush Teddy Bear" />
+            <h4>Teddy Bear</h4>
+            <p>Rs. 1050</p>
+            <button onclick="addToCart('Teddy Bear', 1050, '../assets/images/soft toys/teddybear/b21f2ff8a4de46189fd75bee9b7307d5.jpg_720x720q80.jpg')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-category">
+        <h3>Dolls</h3>
+        <div class="toy-gallery">
+          <div class="toy">
+            <img src="../assets/images/soft toys/doll images/1bcc5d23-fae0-47b9-947c-eeadd3184fc9_800x800.jpeg.a.jpeg" alt="Pretty Doll" />
+            <h4>Pretty Doll</h4>
+            <p>Rs. 700</p>
+            <button onclick="addToCart('Pretty Doll', 700, '../assets/images/soft toys/doll images/1bcc5d23-fae0-47b9-947c-eeadd3184fc9_800x800.jpeg.a.jpeg')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/soft toys/doll images/538658948c84ee22ad9dd90c8cd39b52.jpg" alt="Cute Doll" />
+            <h4>Cute Doll</h4>
+            <p>Rs. 780</p>
+            <button onclick="addToCart('Cute Doll', 780, '../assets/images/soft toys/doll images/538658948c84ee22ad9dd90c8cd39b52.jpg')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/soft toys/doll images/61uVLQTJqNS._AC_UF1000,1000_QL80_.jpg" alt="Cute Doll" />
+            <h4>Cute Doll</h4>
+            <p>Rs. 600</p>
+            <button onclick="addToCart('Cute Doll', 600, '../assets/images/soft toys/doll images/61uVLQTJqNS._AC_UF1000,1000_QL80_.jpg')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/soft toys/doll images/81Uij53Y9wL._AC_SL1500_.jpg" alt="Cute Doll" />
+            <h4>Cute Doll</h4>
+            <p>Rs. 560</p>
+            <button onclick="addToCart('Cute Doll', 560, '../assets/images/soft toys/doll images/81Uij53Y9wL._AC_SL1500_.jpg')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-category">
+        <h3>Keychains</h3>
+        <div class="toy-gallery">
+          <div class="toy">
+            <img src="../assets/images/soft toys/key chain/611YyuR221L._AC_UY1000_.jpg" alt="Bear Keychain" />
+            <h4>Bear Keychain</h4>
+            <p>Rs. 199</p>
+            <button onclick="addToCart('Bear Keychain', 199, '../assets/images/soft toys/key chain/611YyuR221L._AC_UY1000_.jpg')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/soft toys/key chain/61FeLcC0X+L._AC_UY1000_.jpg" alt="Heart Keychain" />
+            <h4>Heart Keychain</h4>
+            <p>Rs. 149</p>
+            <button onclick="addToCart('Heart Keychain', 149, '../assets/images/soft toys/key chain/61FeLcC0X+L._AC_UY1000_.jpg')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/soft toys/key chain/s-l1200.jpg" alt="Heart Keychain" />
+            <h4>Heart Keychain</h4>
+            <p>Rs. 200</p>
+            <button onclick="addToCart('Heart Keychain', 200, '../assets/images/soft toys/key chain/s-l1200.jpg')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Toys -->
+    <div class="category">
+      <h2>Technical Toys</h2>
+
+      <div class="sub-category">
+        <h3>Bikes</h3>
+        <div class="toy-gallery">
+          <div class="toy">
+            <img src="../assets/images/technical toys/bikes/logo.jpg" alt="Speed Bike" />
+            <h4>Speed Bike</h4>
+            <p>Rs. 1299</p>
+            <button onclick="addToCart('Speed Bike', 1299, '../assets/images/technical toys/bikes/logo.jpg')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/technical toys/bikes/images (1).jfif" alt="Racer Bike" />
+            <h4>Racer Bike</h4>
+            <p>Rs. 1399</p>
+            <button onclick="addToCart('Racer Bike', 1399, '../assets/images/technical toys/bikes/images (1).jfif')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/technical toys/bikes/images (2).jfif" alt="Racer Bike" />
+            <h4>Racer Bike</h4>
+            <p>Rs. 1500</p>
+            <button onclick="addToCart('Racer Bike', 1500, '../assets/images/technical toys/bikes/images (2).jfif')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/technical toys/bikes/images.jfif" alt="Racer Bike" />
+            <h4>Racer Bike</h4>
+            <p>Rs. 2000</p>
+            <button onclick="addToCart('Racer Bike', 2000, '../assets/images/technical toys/bikes/images.jfif')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-category">
+        <h3>Robots</h3>
+        <div class="toy-gallery">
+          <div class="toy">
+            <img src="../assets/images/technical toys/robot/61-BB24DkeL._AC_UF894,1000_QL80_.jpg" alt="Walking Robot" />
+            <h4>Walking Robot</h4>
+            <p>Rs. 1799</p>
+            <button onclick="addToCart('Walking Robot', 1799, '../assets/images/technical toys/robot/61-BB24DkeL._AC_UF894,1000_QL80_.jpg')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/technical toys/robot/982017235449_p.jpg" alt="Battle Robot" />
+            <h4>Battle Robot</h4>
+            <p>Rs. 1899</p>
+            <button onclick="addToCart('Battle Robot', 1899, '../assets/images/technical toys/robot/982017235449_p.jpg')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/technical toys/robot/images.jfif" alt="Battle Robot" />
+            <h4>Battle Robot</h4>
+            <p>Rs. 2500</p>
+            <button onclick="addToCart('Battle Robot', 2500, '../assets/images/technical toys/robot/images.jfif')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/technical toys/robot/REMOO_LSNQoL_p.jpg" alt="Battle Robot" />
+            <h4>Battle Robot</h4>
+            <p>Rs. 2500</p>
+            <button onclick="addToCart('Battle Robot', 2500, '../assets/images/technical toys/robot/REMOO_LSNQoL_p.jpg')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-category">
+        <h3>Tabs</h3>
+        <div class="toy-gallery">
+          <div class="toy">
+            <img src="../assets/images/technical toys/tabs/images (1).jfif" alt="Learning Tab" />
+            <h4>Learning Tab</h4>
+            <p>Rs. 1500</p>
+            <button onclick="addToCart('Learning Tab', 1500, '../assets/images/technical toys/tabs/images (1).jfif')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/technical toys/tabs/logo.jpg" alt="Fun Tab" />
+            <h4>Fun Tab</h4>
+            <p>Rs. 1000</p>
+            <button onclick="addToCart('Fun Tab', 1000, '../assets/images/technical toys/tabs/logo.jpg')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/technical toys/tabs/s-l1200.jpg" alt="Fun Tab" />
+            <h4>Fun Tab</h4>
+            <p>Rs. 1000</p>
+            <button onclick="addToCart('Fun Tab', 1000, '../assets/images/technical toys/tabs/s-l1200.jpg')">Add to Cart</button>
+          </div>
+          <div class="toy">
+            <img src="../assets/images/technical toys/tabs/s-l400.jpg" alt="Fun Tab" />
+            <h4>Fun Tab</h4>
+            <p>Rs. 1000</p>
+            <button onclick="addToCart('Fun Tab', 1000, '../assets/images/technical toys/tabs/s-l400.jpg')">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function addToCart(name, price, image) {
+      try {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ name, price, image });
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${name} added to cart!`);
+      } catch (e) {
+        console.error('Failed to add to cart:', e);
+        alert('An error occurred while adding the item to cart.');
+      }
+    }
+  </script>
+</body>
+</html>
